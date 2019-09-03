@@ -60,8 +60,13 @@ def failure(exception):
     return json.dumps({'success': False, 'exception': exception}), 400, {'ContentType': 'application/json'}
 
 
-@app.route("/<number>/")
+@app.route("/print/<int:number>/")
 def print_number(number):
+    if number > 1e6:
+        return failure('{} > 1e6'.format(number))
+    if number < 1e5:
+        return failure('{} < 1e5'.format(number))
+    number = '{:6d}'.format()
     try:
         pdf_path = generate_pdf(number)
         send_pdf_to_printer(pdf_path)
@@ -76,5 +81,5 @@ def test():
     send_pdf_to_printer(pdf_path)
 
 
-if __name__ == '__main__':
-    test()
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=8000, debug=True)
