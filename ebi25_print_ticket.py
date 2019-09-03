@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import sys
 from flask import Flask, render_template, request
 from flask_cors import CORS
@@ -64,3 +65,12 @@ def print_number(number):
         return failure(e)
     else:
         return success()
+
+
+def test():
+    pdf_path = generate_pdf('123456')
+    send_pdf_to_printer(pdf_path)
+
+
+if __name__ == '__main__':
+    test()
