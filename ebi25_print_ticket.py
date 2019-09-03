@@ -13,8 +13,11 @@ app = Flask(__name__)
 CORS(app)
 
 TMP = '~/ebi25/tmp'
-pathlib.Path(TMP).mkdir(parents=True, exist_ok=True)
-
+try:
+    os.makedirs(TMP)
+except OSError:
+    if not os.path.isdir(TMP):
+        raise
 
 template = Template('''
 <html>
