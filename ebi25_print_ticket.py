@@ -60,7 +60,7 @@ def failure(exception):
     return json.dumps({'success': False, 'exception': exception}), 400, {'ContentType': 'application/json'}
 
 
-@app.route("/print/<int:number>/")
+@app.route("/print/<int:number>")
 def print_number(number):
     if number > 1e6:
         return failure('{} > 1e6'.format(number))
