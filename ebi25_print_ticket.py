@@ -62,8 +62,8 @@ def failure(exception):
 
 @app.route("/print/<int:number>")
 def print_number(number):
-    if number > 1e6:
-        return failure('{} > 1e6'.format(number))
+    if number >= 1e6:
+        return failure('{} >= 1e6'.format(number))
     if number < 1e5:
         return failure('{} < 1e5'.format(number))
     number = '{:6d}'.format(number)
