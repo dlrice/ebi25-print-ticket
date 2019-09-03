@@ -8,6 +8,8 @@ import os
 import uuid
 import json
 
+os.environ["DISPLAY"] = ":0"
+
 app = Flask(__name__)
 CORS(app)
 
