@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import sys
 from flask import Flask, render_template, request
 from flask_cors import CORS
@@ -34,14 +33,14 @@ template = Template('''
 
 
 def send_pdf_to_printer(pdf_path):
-    command = f'lp {pdf_path}'
+    command = 'lp {}'.format(pdf_path)
     os.system(command)
 
 
 def generate_pdf(number):
     filename = uuid.uuid4().hex
-    html_path = os.path.join(TMP, f'{filename}.html')
-    pdf_path = os.path.join(TMP, f'{filename}.pdf')
+    html_path = os.path.join(TMP, '{}.html'.format(filename))
+    pdf_path = os.path.join(TMP, '{}.pdf'.format(filename))
     with open(html_path, 'w') as f:
         f.write(template.render(number=number))
     pdfkit.from_file(html_path, pdf_path)
