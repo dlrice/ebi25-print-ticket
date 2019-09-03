@@ -66,7 +66,7 @@ def print_number(number):
         return failure('{} > 1e6'.format(number))
     if number < 1e5:
         return failure('{} < 1e5'.format(number))
-    number = '{:6d}'.format()
+    number = '{:6d}'.format(number)
     try:
         pdf_path = generate_pdf(number)
         send_pdf_to_printer(pdf_path)
