@@ -7,7 +7,6 @@ import pdfkit
 import os
 import uuid
 import json
-import pathlib
 
 app = Flask(__name__)
 CORS(app)
