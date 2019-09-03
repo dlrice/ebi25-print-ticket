@@ -11,7 +11,7 @@ import json
 app = Flask(__name__)
 CORS(app)
 
-TMP = '~/ebi25/tmp'
+TMP = os.path.expanduser('~/ebi25/tmp')
 try:
     os.makedirs(TMP)
 except OSError:
