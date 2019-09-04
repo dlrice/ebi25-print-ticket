@@ -30,6 +30,9 @@ template = Template('''
       body {
         font-size: 40px;
         padding-left: 18px;
+        background-color: black;
+        color: white;
+        font-family: monospace;
       }
     </style>
   </head>
