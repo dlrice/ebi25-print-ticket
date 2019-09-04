@@ -9,8 +9,6 @@ import uuid
 import json
 import logging
 
-logging.basicConfig(filename='ebi25-print-ticket.log')
-
 os.environ["DISPLAY"] = ":0"
 
 app = Flask(__name__)
