@@ -9,7 +9,7 @@ import uuid
 import json
 import logging
 
-logging.basicConfig(filename='log')
+logging.basicConfig(filename='ebi25-print-ticket.log')
 
 os.environ["DISPLAY"] = ":0"
 
