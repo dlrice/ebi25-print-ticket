@@ -52,7 +52,7 @@ def generate_pdf(number):
     app.logger.info('generated HTML file: {}'.format(html_path))
     pdfkit.from_file(html_path, pdf_path)
     app.logger.info('generated PDF file: {}'.format(pdf_path))
-    return pdf_path
+    return html_path, pdf_path
 
 
 def clean_up(html_path, pdf_path):
@@ -84,6 +84,7 @@ def print_number(number):
         send_pdf_to_printer(pdf_path)
         clean_up(html_path, pdf_path)
     except Exception as e:
+        print(e)
         return failure(e)
     else:
         return success()
