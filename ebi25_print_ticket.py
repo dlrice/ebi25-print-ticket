@@ -7,6 +7,9 @@ import pdfkit
 import os
 import uuid
 import json
+import logging
+
+logging.basicConfig(filename='log')
 
 os.environ["DISPLAY"] = ":0"
 
